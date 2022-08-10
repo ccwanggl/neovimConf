@@ -1,14 +1,12 @@
 local M = {}
 
-
 M.ui = {
-   theme = "chadtain",
+  theme = "chadtain",
 }
 
 M.plugins = {
   user = require "custom.plugins",
 }
-
 
 M.mappings = require "custom.mappings"
 
