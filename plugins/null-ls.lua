@@ -21,6 +21,9 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+
+  --csharp
+  b.formatting.cshapier,
 }
 
 null_ls.setup {
