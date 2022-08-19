@@ -23,11 +23,12 @@ local sources = {
   b.formatting.clang_format,
 
 }
-
+--[[
 if vim.loop.os_uname().sysname  ~= "Linux" then
   --csharp
   table.insert(sources,"b.formatting.clang_format")
 end
+--]]
 
 
 null_ls.setup {
