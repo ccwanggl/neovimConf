@@ -25,6 +25,7 @@ return {
 
   ["folke/trouble.nvim"] = {
     opt = true,
+    ft = {'lua','sh','zsh','bash','c','cpp','cmake','html','markdown', 'vim', 'tex'},
     requires = "nvim-tree/nvim-web-devicons",
     config = function()
       require("trouble").setup {
@@ -34,6 +35,7 @@ return {
       }
     end,
     },
+
 
   ["glepnir/lspsaga.nvim"] = {
     config = function()
@@ -45,12 +47,17 @@ return {
       --{"nvim-treesitter/nvim-treesitter"}
     },
   },
-  
    -- format & linting
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require "custom.plugins.configs.null-ls"
     end,
+  },
+  ["folke/neodev.nvim"] = { },
+  ["ggandor/leap.nvim"] = {
+    config = function()
+      require("leap").add_default_mappings()
+    end
   },
 }
