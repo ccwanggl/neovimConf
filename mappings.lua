@@ -3,7 +3,6 @@ local M = {}
 M.general = {
   i = {
     ["jk"] = { "<ESC>", "Escape insert mode", opts = { nowait = true } },
-    -- navigate within insert mode
     ["<C-h>"] = { "<BS>", "delete left char" },
   },
 
@@ -15,6 +14,11 @@ M.general = {
       "goto next buffer",
     },
   },
+}
+
+M.nvimtree = {
+
+    ["<C-n>"] = {},
 }
 
 M.lspconfig = {
