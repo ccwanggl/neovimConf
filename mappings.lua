@@ -16,11 +16,6 @@ M.general = {
   },
 }
 
-M.nvimtree = {
-
-    ["<C-n>"] = {},
-}
-
 M.lspconfig = {
   n = {
     ["gh"] = {
@@ -61,12 +56,11 @@ M.lspconfig = {
       "<cmd>Lspsaga show_buf_diagnostics<CR>",
       "rename",
     },
-    
+
     ["[e"] = {
       "<cmd>Lspsaga diagnostics_jump_prev<CR>",
       "rename",
     },
-
 
     ["]e"] = {
       "<cmd>Lspsaga diagnostics_jump_next<CR>",
@@ -99,6 +93,6 @@ M.lspconfig = {
       "<cmd>Lspsaga code_action<CR>",
       "code action",
     },
-  }
+  },
 }
 return M
