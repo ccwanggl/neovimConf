@@ -1,7 +1,7 @@
 local M = {}
 
 M.ui = {
-  theme = "chocolate",
+  theme = "gruvbox_material",
 }
 
 M.plugins = {
