@@ -6,14 +6,15 @@ return {
     end,
   },
 
-  ["glepnir/dashboard-nvim"] = {
-    event = "VimEnter",
-    config = function()
-      require "custom.plugins.configs.dashboard"
-    end,
-
-    requires = "nvim-tree/nvim-web-devicons",
-  },
+  -- ["glepnir/dashboard-nvim"] = {
+  --   disable = false,
+  --   event = "VimEnter",
+  --   config = function()
+  --     require "custom.plugins.configs.dashboard"
+  --   end,
+  --
+  --   requires = "nvim-tree/nvim-web-devicons",
+  -- },
 
   ["williamboman/mason.nvim"] = {
     override_options = {
