@@ -104,6 +104,14 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
+  {
+    "gelguy/wilder.nvim",
+    event = "CmdlineEnter",
+
+    config = function()
+      require "custom.plugins.configs.wilder"
+    end,
+  },
 }
 
 return plugins
