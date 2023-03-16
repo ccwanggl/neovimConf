@@ -112,6 +112,20 @@ local plugins = {
       require "custom.plugins.configs.wilder"
     end,
   },
+  {
+    "glepnir/nerdicons.nvim",
+    cmd = "NerdIcons",
+    config = function()
+      require("nerdicons").setup({})
+    end
+  },
+  {
+    "glepnir/hlsearch.nvim",
+    event = "BufRead",
+    config = function()
+      require("hlsearch").setup()
+    end
+  },
 }
 
 return plugins
