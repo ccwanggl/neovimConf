@@ -27,7 +27,7 @@ M.mason = {
     "stylua",
 
     "clangd",
-    "cmake-language-serer",
+    "neocmakelsp"
   },
 }
 
