@@ -1,7 +1,7 @@
-local M ={}
+local M = {}
 M.treesitter = {
   ensure_installed = {
-    "vim" ,
+    "vim",
     "lua",
     "html",
     "css",
@@ -11,7 +11,7 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
   },
-  
+
   indent = {
     enable = true,
     disable = {
@@ -20,14 +20,19 @@ M.treesitter = {
   },
 }
 
-
 M.mason = {
   ensure_installed = {
     "lua-language-server",
     "stylua",
 
     "clangd",
-    "neocmakelsp"
+    "neocmakelsp",
+    "shfmt",
+    "shell_check",
+    "cmakelang",
+    "cpplint",
+    "clang-format",
+    "bash-language-server",
   },
 }
 
@@ -45,6 +50,5 @@ M.nvimtree = {
     },
   },
 }
-
 
 return M
