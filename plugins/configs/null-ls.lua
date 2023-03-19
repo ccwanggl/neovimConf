@@ -23,6 +23,10 @@ local sources = {
   -- cpp
   b.formatting.clang_format,
   b.diagnostics.cpplint,
+
+  -- cmake
+  b.formatting.cmake_format,
+  b.diagnostics.cmake_lint,
 }
 
 local async_formatting = function(bufnr)
