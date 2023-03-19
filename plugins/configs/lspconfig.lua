@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local configs = require("lspconfig.configs")
 local nvim_lsp = require("lspconfig")
-local servers = { "html", "cssls", "emmet_ls", "clangd", "jsonls", "tsserver", "csharp_ls", "lua_ls"}
+local servers = { "html", "cssls", "emmet_ls", "clangd", "jsonls", "tsserver", "csharp_ls", "lua_ls", "pyright"}
 
 
 --NOTE: Only for neodev configuration

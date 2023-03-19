@@ -20,12 +20,12 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- ["williamboman/mason-lspconfig.nvim"] = {
-  --   event = "BufRead",
-  --   config = function()
-  --     require("mason-lspconfig").setup()
-  --   end,
-  -- },
+  ["williamboman/mason-lspconfig.nvim"] = {
+    event = "BufRead",
+    config = function()
+      require("mason-lspconfig").setup()
+    end,
+  },
 
   {
     "nvim-treesitter/nvim-treesitter",
@@ -79,6 +79,7 @@ local plugins = {
   -- format & linting
   {
     "jose-elias-alvarez/null-ls.nvim",
+    event = "BufRead",
     after = "nvim-lspconfig",
     config = function()
       require "custom.plugins.configs.null-ls"
