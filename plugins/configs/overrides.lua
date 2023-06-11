@@ -27,8 +27,8 @@ M.mason = {
 
     "clangd",
     "neocmakelsp",
-    "shfmt",
-    "shell_check",
+    --    "shfmt",
+    --    "shell_check",
     "cmakelang",
     "cpplint",
     "clang-format",

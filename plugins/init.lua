@@ -1,7 +1,6 @@
-local overrides = require("custom.plugins.configs.overrides")
+local overrides = require "custom.plugins.configs.overrides"
 
 local plugins = {
-
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -14,7 +13,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
-  
+
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
@@ -31,7 +30,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
-  
+
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
@@ -117,15 +116,21 @@ local plugins = {
     "glepnir/nerdicons.nvim",
     cmd = "NerdIcons",
     config = function()
-      require("nerdicons").setup({})
-    end
+      require("nerdicons").setup {}
+    end,
   },
   {
     "glepnir/hlsearch.nvim",
     event = "BufRead",
     config = function()
       require("hlsearch").setup()
-    end
+    end,
+  },
+  {
+    "Bekaboo/dropbar.nvim",
+    config = function()
+      require("dropbar").setup()
+    end,
   },
 }
 

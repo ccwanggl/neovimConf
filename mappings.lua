@@ -18,7 +18,7 @@ M.general = {
 }
 
 M.telescope = {
- n = {
+  n = {
     ["<leader>,"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>ff"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
     ["<leader>fg"] = { "<cmd> Telescope git_files <CR>", "find git files" },

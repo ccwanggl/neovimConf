@@ -13,7 +13,7 @@ local sources = {
   b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
 
   -- Lua
-  b.formatting.stylua,
+  -- b.formatting.stylua,
 
   -- Shell
   b.formatting.shfmt,
