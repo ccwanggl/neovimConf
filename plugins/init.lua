@@ -132,6 +132,10 @@ local plugins = {
       require("dropbar").setup()
     end,
   },
+  {
+    "chrisgrieser/nvim-recorder",
+    opts = {},
+  },
 }
 
 return plugins
