@@ -29,7 +29,7 @@ M.telescope = {
 
 M.lspsage = {
   n = {
-    ["gh"]         = { "<cmd>Lspsaga lsp_finder<CR>", "lsp declaration", },
+    ["gh"]         = { "<cmd>Lspsaga finder<CR>", "lsp declaration", },
     ["<Leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "code action", },
     ["<Leader>gr"] = { "<cmd>Lspsaga rename<CR>", "rename", },
     ["<Leader>gd"] = { "<cmd>Lspsaga peek_definition<CR>", "peek definition", },
@@ -43,6 +43,7 @@ M.lspsage = {
     ["K"]          = { "<cmd>Lspsaga hover_doc ++keep<CR>", "hover", },
     ["<Leader>ci"] = { "<cmd>Lspsaga incoming_calls<CR>", "incoming calls", },
     ["<Leader>co"] = { "<cmd>Lspsaga outgoing_calls<CR>", "outgoing calls", },
+    ["<Leader>t"] = { "<cmd>Lspsaga term_toggle<CR>", "outgoing calls", },
   },
 
   v = {
