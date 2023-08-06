@@ -88,7 +88,6 @@ local plugins = {
     {
         "folke/neodev.nvim",
     },
-
     {
         "ggandor/leap.nvim",
         event = "BufRead",
@@ -116,7 +115,7 @@ local plugins = {
         "glepnir/nerdicons.nvim",
         cmd = "NerdIcons",
         config = function()
-            require("nerdicons").setup {}
+            require("nerdicons").setup{}
         end,
     },
     {
@@ -141,6 +140,20 @@ local plugins = {
         event = "BufRead",
         config = function ()
             require("neo-zoom").setup()
+        end
+    },
+    {
+        "nvimdev/rapid.nvim",
+        lazy = false,
+        config = function()
+            require("rapid").setup()
+        end
+    },
+    {
+        "nvimdev/indentmini.nvim",
+        event = "BufEnter",
+        config = function()
+            require("indentmini").setup()
         end
     },
 }
