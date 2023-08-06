@@ -1,5 +1,6 @@
 local M = {}
 
+-- In order to disable a default keymap, use
 M.disabled = {
   i = {
     ["<C-h>"] = "",
@@ -14,6 +15,8 @@ M.general = {
       end,
       "goto next buffer",
     },
+    ["<C-w>M"] = {"<C-w>| <C-w>_", "maximize current pane"},
+    ["<C-w>m"] = {"<C-w>=", "minimize current pane"}
   },
 }
 
@@ -50,4 +53,10 @@ M.lspsage = {
     ["<Leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "code action", },
   },
 }
+M.NeoZoom = {
+    n = {
+        ["<leader>fp"] = {"<cmd> NeoZoomToggle <CR>", "floating current pane",},
+    }
+}
+
 return M
