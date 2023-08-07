@@ -20,22 +20,6 @@ M.treesitter = {
   },
 }
 
-M.mason = {
-  ensure_installed = {
-    "lua-language-server",
-    "stylua",
-
-    "clangd",
-    "neocmakelsp",
-    --    "shfmt",
-    --    "shell_check",
-    "cmakelang",
-    "cpplint",
-    "clang-format",
-    "bash-language-server",
-  },
-}
-
 M.nvimtree = {
   git = {
     enable = true,

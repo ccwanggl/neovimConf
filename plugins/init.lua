@@ -9,21 +9,60 @@ local plugins = {
         end,
     },
 
+    -- NOTE:use mason-lspconfig to configure LSP installation
     {
         "williamboman/mason.nvim",
-        opts = overrides.mason,
+        config = function()
+            require("mason").setup()
+        end,
     },
 
+    {
+        "williamboman/mason-lspconfig.nvim",
+        event = "BufRead",
+        opts = {
+            ensure_installed = {
+                "lua_ls",
+                "pyright",
+                "clangd",
+                "neocmake",
+                "bashls",
+                "powershell_es",
+                "csharp_ls"
+            },
+        }
+    },
+    -- NOTE:use mason-null-ls to configure Formatter/Linter installation for null-ls sources
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = "BufRead",
+        opts ={
+            ensure_installed = {
+                "stylua",
+                "cpplint",
+                "clang-format",
+                "shell-check",
+                "csharpier",
+                "cmakelang",
+                -- "luacheck",
+            },
+        }
+    },
+    
+    {
+        event = "BufRead",
+        "jay-babu/mason-nvim-dap.nvim" ,
+        opts = {
+            ensure_installed = { 
+                -- "python",
+                "codelldb"
+            },
+        }
+    },
+    
     {
         "nvim-tree/nvim-tree.lua",
         opts = overrides.nvimtree,
-    },
-
-    ["williamboman/mason-lspconfig.nvim"] = {
-        event = "BufRead",
-        config = function()
-            require("mason-lspconfig").setup()
-        end,
     },
 
     {
