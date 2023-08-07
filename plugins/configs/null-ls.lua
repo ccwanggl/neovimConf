@@ -25,10 +25,9 @@ local sources = {
   lint.cpplint,
 
   -- cmake
-  formatting.cmake_format,
-  lint.cmake_lint,
+  formatting.cmakelang,
+  lint.cmakelang,
 }
---[[
 local async_formatting = function(bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
 
@@ -74,4 +73,3 @@ null_ls.setup {
     end
   end,
 }
---]]
