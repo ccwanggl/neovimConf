@@ -8,7 +8,10 @@ M.treesitter = {
     "javascript",
     "c",
     "cpp",
+    "python",
+    "c_sharp",
     "markdown",
+    "cmake",
     "markdown_inline",
   },
 

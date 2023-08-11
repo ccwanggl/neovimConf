@@ -28,6 +28,8 @@ local sources = {
   formatting.cmake_format,
   lint.cmake_lint,
 }
+
+--[[
 local async_formatting = function(bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
 
@@ -53,13 +55,15 @@ local async_formatting = function(bufnr)
     end
   end)
 end
+]]
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup {
   -- add your sources / config options here
   sources = sources,
   debug = true,
+  --[[
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
       vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
@@ -72,4 +76,5 @@ null_ls.setup {
       })
     end
   end,
+    ]]
 }
