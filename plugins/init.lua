@@ -29,6 +29,7 @@ local plugins = {
         "bashls",
         "powershell_es",
         "csharp_ls",
+        "rust_analyzer"
       },
     },
   },
