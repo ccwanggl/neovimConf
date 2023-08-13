@@ -58,4 +58,15 @@ M.NeoZoom = {
     ["<leader>fp"] = { "<cmd> NeoZoomToggle <CR>", "floating current pane" },
   },
 }
+
+M.crates = {
+    n = {
+        ["<leader>rcu"] = {
+            function()
+                require('crates').upgrade_all_crates()
+            end,
+            "update crates"
+        }
+    }
+}
 return M
