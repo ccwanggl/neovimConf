@@ -16,31 +16,40 @@ local servers = {
     "rust_analyzer"
 }
 
---NOTE: Only for neodev configuration
-require("neodev").setup {}
-
 for _, lsp in ipairs(servers) do
-  if lsp == "clangd" then
-    capabilities.offsetEncoding = { "utf-16" }
-  end
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+    if lsp == "clangd" then
+        capabilities.offsetEncoding =  "utf-16"
+        
+        nvim_lsp[lsp].setup {
+            on_attach = function (client, bufnr)
+                client.server_capabilities.signatureHelpProvider = false
+                on_attach(client, bufnr)
+            end,
+            capabilities = capabilities,
+        }
+    else
+        nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+        }
+    end
 end
 
 --NOTE: configuration for neocmakelsp
 if not configs.neocmake then
-  configs.neocmake = {
-    default_config = {
-      cmd = { "neocmakelsp", "--stdio" },
-      filetypes = { "cmake" },
-      root_dir = function(fname)
-        return nvim_lsp.util.find_git_ancestor(fname)
-      end,
-      single_file_support = true, -- suggested
-      on_attach = on_attach, -- on_attach is the on_attach function you defined
-    },
-  }
-  nvim_lsp.neocmake.setup {}
+    configs.neocmake = {
+        default_config = {
+            cmd = { "neocmakelsp", "--stdio" },
+            filetypes = { "cmake" },
+            root_dir = function(fname)
+                return nvim_lsp.util.find_git_ancestor(fname)
+            end,
+            single_file_support = true, -- suggested
+            on_attach = on_attach, -- on_attach is the on_attach function you defined
+        },
+    }
+    nvim_lsp.neocmake.setup {}
 end
+
+--NOTE: Only for neodev configuration
+require("neodev").setup {}

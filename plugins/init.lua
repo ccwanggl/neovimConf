@@ -118,7 +118,7 @@ local plugins = {
     -- format & linting
     {
         "jose-elias-alvarez/null-ls.nvim",
-        event = "BufRead",
+        event = "VeryLazy",
         after = "nvim-lspconfig",
         config = function()
             require "custom.plugins.configs.null-ls"
