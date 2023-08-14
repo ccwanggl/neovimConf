@@ -29,7 +29,8 @@ local plugins = {
                 "bashls",
                 "powershell_es",
                 "csharp_ls",
-                "rust_analyzer"
+                "rust_analyzer",
+                "gopls"
             },
         },
     },
@@ -45,18 +46,23 @@ local plugins = {
                 "shell-check",
                 "csharpier",
                 "cmakelang",
+                "gospel",
+                "gofumpt",
+                "goimports",
+                "golines"
                 -- "luacheck",
             },
         },
     },
 
     {
-        event = "BufRead",
         "jay-babu/mason-nvim-dap.nvim",
+        event = "BufRead",
         opts = {
             ensure_installed = {
                 -- "python",
                 "codelldb",
+                "go-debug-adapter",
             },
         },
     },
@@ -217,6 +223,28 @@ local plugins = {
     },
     {
         "mfussenegger/nvim-dap",
+        init = function ()
+            require("core.utils").load_mappings("dap")
+        end
+    },
+    {
+        "leoluz/nvim-dap-go",
+        ft="go",
+        dependencies = "mfussenegger/nvim-dap",
+        config = function (_, opts)
+            require("dap-go").setup(opts)
+        end
+    },
+    {
+        "olexsmir/gopher.nvim",
+        ft = "go",
+        config = function (_, opts)
+            require("gopher").setup(opts)
+            require("core.utils").load_mappings("gopher")
+        end,
+        build = function ()
+            vim.cmd [[silent! GoInstallDeps]]
+        end
     },
     {
         "saecki/crates.nvim",

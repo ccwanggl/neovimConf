@@ -3,6 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local configs = require "lspconfig.configs"
 local nvim_lsp = require "lspconfig"
+local util = require "lspconfig/util"
 local servers = {
     "html",
     "cssls",
@@ -13,27 +14,38 @@ local servers = {
     "csharp_ls",
     "lua_ls",
     "pyright",
-    "rust_analyzer"
+    "rust_analyzer",
 }
 
 for _, lsp in ipairs(servers) do
     if lsp == "clangd" then
-        capabilities.offsetEncoding =  "utf-16"
-        
-        nvim_lsp[lsp].setup {
-            on_attach = function (client, bufnr)
-                client.server_capabilities.signatureHelpProvider = false
-                on_attach(client, bufnr)
-            end,
-            capabilities = capabilities,
-        }
-    else
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-        }
+        capabilities.offsetEncoding =  {"utf-16"}
     end
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }
 end
+
+--NOTE: configuration for gopls
+nvim_lsp.gopls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {"gopls"},
+    filetype = {"go", "gomod", "gowork", "gotoml"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+            }
+        }
+    }
+}
+
+
 
 --NOTE: configuration for neocmakelsp
 if not configs.neocmake then

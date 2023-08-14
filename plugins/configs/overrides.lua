@@ -14,6 +14,7 @@ M.treesitter = {
     "cmake",
     "markdown_inline",
     "rust",
+    "go",
   },
 
   indent = {
