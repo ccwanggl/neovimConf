@@ -1,11 +1,16 @@
-local wilder = require "wilder"
-wilder.setup {
-  modes = { ":", "/", "?" },
-  next_key = 0,
-  previous_key = 0,
-  reject_key = 0,
-  accept_key = 0,
-}
+local present, wilder = pcall(require, "wilder")
+
+if not present then
+  print "wilder not found"
+else
+  wilder.setup {
+    modes = { ":", "/", "?" },
+    next_key = 0,
+    previous_key = 0,
+    reject_key = 0,
+    accept_key = 0,
+  }
+end
 vim.api.nvim_command "silent! UpdateRemotePlugins" -- 需要载入一次py依赖 不然模糊过滤等失效
 -- 设置source
 wilder.set_option("pipeline", {
@@ -22,8 +27,28 @@ wilder.set_option("pipeline", {
       fuzzy = 1,
       fuzzy_filter = wilder.vim_fuzzy_filter(),
     },
+    wilder.python_search_pipeline({
+      -- can be set to wilder#python_fuzzy_delimiter_pattern() for stricter fuzzy matching
+      pattern = wilder.python_fuzzy_pattern(),
+      -- omit to get results in the order they appear in the buffer
+      sorter = wilder.python_difflib_sorter(),
+      -- can be set to 're2' for performance, requires pyre2 to be installed
+      -- see :h wilder#python_search() for more details
+      engine = 're',
+    }),
+    wilder.python_file_finder_pipeline({
+      -- to use ripgrep : {'rg', '--files'}
+      -- to use fd      : {'fd', '-tf'}
+      file_command = {'find', '.', '-type', 'f', '-printf', '%P\n'}, 
+      -- to use fd      : {'fd', '-td'}
+      dir_command = {'find', '.', '-type', 'd', '-printf', '%P\n'},
+      -- use {'cpsm_filter'} for performance, requires cpsm vim plugin
+      -- found at https://github.com/nixprime/cpsm
+      filters = {'fuzzy_filter', 'difflib_sorter'},
+    }),
     -- pipeline for search
-    wilder.search_pipeline()
+    wilder.search_pipeline(),
+    wilder.python_search_pipeline()
   ),
 })
 -- 设置样式
