@@ -31,6 +31,8 @@ local sources = {
     formatting.gofumpt,
     formatting.goimports_reviser,
     formatting.golines,
+
+    formatting.csharpier,
 }
 
 --[[
