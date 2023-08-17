@@ -46,10 +46,13 @@ local plugins = {
         "shell-check",
         "csharpier",
         "cmakelang",
-        "gospel",
+        -- "gospel",
         "gofumpt",
-        "goimports",
+        "goimports_reviser",
         "golines",
+        "mypy",
+        "ruff",
+        "black",
         -- "luacheck",
       },
     },
@@ -63,6 +66,7 @@ local plugins = {
         -- "python",
         "codelldb",
         "go-debug-adapter",
+        "debugpy",
       },
     },
   },
@@ -233,6 +237,38 @@ local plugins = {
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("dap-go").setup(opts)
+      require("core.utils").load_mappings "dap_go"
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function(_, opts)
+      local path = "~/AppData/Local/nvim-data/mason/packages/debugpy/venv/Scripts/python.exe"
+      require("dap-python").setup(path)
+      require("core.utils").load_mappings "dap_python"
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require "dap"
+      local dapui = require "dapui"
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
     end,
   },
   {

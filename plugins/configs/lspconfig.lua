@@ -13,7 +13,6 @@ local servers = {
     "tsserver",
     "csharp_ls",
     "lua_ls",
-    "pyright",
     "rust_analyzer",
 }
 
@@ -33,6 +32,23 @@ nvim_lsp.gopls.setup{
     capabilities = capabilities,
     cmd = {"gopls"},
     filetype = {"go", "gomod", "gowork", "gotoml"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+            }
+        }
+    }
+}
+
+--NOTE: configuration for gopls
+nvim_lsp.pyright.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetype = {"python"},
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {

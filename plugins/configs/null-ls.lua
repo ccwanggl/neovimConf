@@ -1,7 +1,7 @@
 local present, null_ls = pcall(require, "null-ls")
 
 if not present then
-    return
+  return
 end
 
 local formatting = null_ls.builtins.formatting
@@ -9,30 +9,37 @@ local lint = null_ls.builtins.diagnostics
 
 local sources = {
 
-    -- webdev stuff
-    formatting.deno_fmt,
-    formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
+  -- NOTE: webdev stuff
+  formatting.deno_fmt,
+  formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
 
-    -- Lua
-    formatting.stylua,
+  -- NOTE: Lua
+  formatting.stylua,
 
-    -- Shell
-    formatting.shfmt,
-    lint.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+  -- NOTE: Shell
+  formatting.shfmt,
+  lint.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
-    -- cpp
-    formatting.clang_format,
-    lint.cpplint,
+  -- NOTE: cpp
+  formatting.clang_format,
+  lint.cpplint,
 
-    -- cmake
-    formatting.cmake_format,
-    lint.cmake_lint,
+  -- NOTE: cmake
+  formatting.cmake_format,
+  lint.cmake_lint,
 
-    formatting.gofumpt,
-    formatting.goimports_reviser,
-    formatting.golines,
+  -- NOTE: golang
+  formatting.gofumpt,
+  formatting.goimports_reviser,
+  formatting.golines,
 
-    formatting.csharpier,
+  -- NOTE: csharp
+  formatting.csharpier,
+
+  -- NOTE: python
+  lint.mypy,
+  lint.ruff,
+  formatting.black,
 }
 
 --[[
@@ -66,10 +73,10 @@ end
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup {
-    -- add your sources / config options here
-    sources = sources,
-    debug = true,
-    --[[
+  -- add your sources / config options here
+  sources = sources,
+  debug = true,
+  --[[
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
       vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
