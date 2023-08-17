@@ -32,6 +32,7 @@ local sources = {
   formatting.gofumpt,
   formatting.goimports_reviser,
   formatting.golines,
+    lint.gospel,
 
   -- NOTE: csharp
   formatting.csharpier,

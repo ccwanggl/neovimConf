@@ -46,7 +46,7 @@ local plugins = {
         "shell-check",
         "csharpier",
         "cmakelang",
-        -- "gospel",
+        "gospel",
         "gofumpt",
         "goimports_reviser",
         "golines",
@@ -300,6 +300,20 @@ local plugins = {
       return M
     end,
   },
+  {
+    "sindrets/diffview.nvim",
+        event = "BufRead"
+  },
+    {
+        "NeogitOrg/neogit",
+        event = "BufRead",
+        dependencies ={
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "sindrets/diffview.nvim"
+        },
+        config = true
+    }
 }
 
 return plugins
