@@ -137,6 +137,10 @@ local plugins = {
 
   {
     "folke/neodev.nvim",
+    ft="lua",
+    config = function()
+      require "custom.plugins.configs.neodev"
+    end,
   },
   {
     "ggandor/leap.nvim",
@@ -302,18 +306,18 @@ local plugins = {
   },
   {
     "sindrets/diffview.nvim",
-        event = "BufRead"
+    event = "BufRead",
   },
-    {
-        "NeogitOrg/neogit",
-        event = "BufRead",
-        dependencies ={
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-            "sindrets/diffview.nvim"
-        },
-        config = true
-    }
+  {
+    "NeogitOrg/neogit",
+    event = "BufRead",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "sindrets/diffview.nvim",
+    },
+    config = true,
+  },
 }
 
 return plugins

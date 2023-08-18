@@ -7,3 +7,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+
+if vim.g.neovide then
+    vim.o.guifont = "MesloLGL Nerd Font:h14:b"
+end
