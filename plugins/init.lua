@@ -137,7 +137,7 @@ local plugins = {
 
   {
     "folke/neodev.nvim",
-    ft="lua",
+    ft = "lua",
     config = function()
       require "custom.plugins.configs.neodev"
     end,
@@ -317,6 +317,13 @@ local plugins = {
       "sindrets/diffview.nvim",
     },
     config = true,
+  },
+  {
+    "aznhe21/actions-preview.nvim",
+    event = "BufEnter",
+    config = function()
+      require "custom.plugins.configs.action-preview"
+    end,
   },
 }
 
