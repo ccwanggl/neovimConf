@@ -33,7 +33,7 @@ M.telescope = {
 M.lspsage = {
   n = {
     ["gh"] = { "<cmd>Lspsaga finder<CR>", "lsp declaration" },
-    ["<Leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "code action" },
+    ["<Leader>t"] = { "<cmd>Lspsaga term_toggle<CR>", "outgoing calls" },
     ["<Leader>gr"] = { "<cmd>Lspsaga rename<CR>", "rename" },
     ["<Leader>gd"] = { "<cmd>Lspsaga peek_definition<CR>", "peek definition" },
     ["<Leader>gD"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "buf definition" },
@@ -46,7 +46,7 @@ M.lspsage = {
     ["K"] = { "<cmd>Lspsaga hover_doc ++keep<CR>", "hover" },
     ["<Leader>ci"] = { "<cmd>Lspsaga incoming_calls<CR>", "incoming calls" },
     ["<Leader>co"] = { "<cmd>Lspsaga outgoing_calls<CR>", "outgoing calls" },
-    ["<Leader>t"] = { "<cmd>Lspsaga term_toggle<CR>", "outgoing calls" },
+    ["<Leader>ca"] = { "<cmd>Lspsaga code_action<CR>", "code action" },
   },
 
   v = {
