@@ -325,6 +325,17 @@ local plugins = {
       require "custom.plugins.configs.action-preview"
     end,
   },
+  {
+    "hrsh7th/cmp-calc",
+    event = "BufEnter",
+    config = function()
+      require("cmp").setup {
+        sources = {
+          { name = "calc" },
+        },
+      }
+    end,
+  },
 }
 
 return plugins
