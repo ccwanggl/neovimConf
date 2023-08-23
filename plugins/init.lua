@@ -336,6 +336,14 @@ local plugins = {
       }
     end,
   },
+  {
+    "andrewferrier/debugprint.nvim",
+    event = "BufEnter",
+    opts = {},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
 }
 
 return plugins
