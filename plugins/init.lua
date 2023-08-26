@@ -329,13 +329,10 @@ local plugins = {
     "hrsh7th/cmp-calc",
     event = "BufEnter",
     config = function()
-      require("cmp").setup {
-        sources = {
-          { name = "calc" },
-        },
-      }
+      require "custom.plugins.configs.calc"
     end,
   },
+    
   {
     "andrewferrier/debugprint.nvim",
     event = "BufEnter",

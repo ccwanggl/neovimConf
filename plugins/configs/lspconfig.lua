@@ -19,6 +19,10 @@ local servers = {
 for _, lsp in ipairs(servers) do
     if lsp == "clangd" then
         capabilities.offsetEncoding =  {"utf-16"}
+        on_attach = function(client, bufnr)
+            client.server_capabilities.signatureHelpProvider = false
+            on_attach(client, bufnr)
+        end
     end
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
