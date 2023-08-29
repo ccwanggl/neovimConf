@@ -14,6 +14,7 @@ local servers = {
     "csharp_ls",
     "lua_ls",
     "rust_analyzer",
+    "marksman"
 }
 
 for _, lsp in ipairs(servers) do
