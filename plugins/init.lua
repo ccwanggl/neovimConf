@@ -31,6 +31,7 @@ local plugins = {
         "csharp_ls",
         "rust_analyzer",
         "gopls",
+        "marksman"
       },
     },
   },
