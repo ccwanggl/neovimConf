@@ -342,6 +342,14 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter",
     },
   },
+    {
+        "ellisonleao/carbon-now.nvim",
+        lazy  = true,
+        cmd = "CarbonNow",
+        config = function ()
+            require "custom.plugins.configs.carbon"
+        end
+    }
 }
 
 return plugins
