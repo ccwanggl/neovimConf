@@ -17,6 +17,18 @@ local servers = {
     "marksman"
 }
 
+local function tablefind(tab,el)
+    for index, value in pairs(tab) do
+        if value == el then
+            return index
+        end
+    end
+end
+
+if os_name == "Windows" then
+    table.remove(servers, tablefind(servers,"csharp_ls"))
+end
+
 for _, lsp in ipairs(servers) do
     if lsp == "clangd" then
         capabilities.offsetEncoding =  {"utf-16"}

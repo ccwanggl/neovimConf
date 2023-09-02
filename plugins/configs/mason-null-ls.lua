@@ -39,8 +39,8 @@ if os_name == "Windows" then
     options = {
         ensure_installed = ensure_installed
     }
-else
-    print("Not windows")
+elseif os_name == "Linux" then
+    table.remove(ensure_installed, tablefind(ensure_installed,"csharpier"))
 end
 
 
