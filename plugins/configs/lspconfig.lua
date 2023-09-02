@@ -18,7 +18,7 @@ local servers = {
     "marksman"
 }
 
-if os_name == "Windows" then
+if os_name == "Linux" then
     table.remove(servers, get_os_name.tablefind(servers,"csharp_ls"))
 end
 
