@@ -1,3 +1,4 @@
+local get_os_name = require ("custom.plugins.configs.get_os_name")
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
@@ -17,16 +18,8 @@ local servers = {
     "marksman"
 }
 
-local function tablefind(tab,el)
-    for index, value in pairs(tab) do
-        if value == el then
-            return index
-        end
-    end
-end
-
 if os_name == "Windows" then
-    table.remove(servers, tablefind(servers,"csharp_ls"))
+    table.remove(servers, get_os_name.tablefind(servers,"csharp_ls"))
 end
 
 for _, lsp in ipairs(servers) do

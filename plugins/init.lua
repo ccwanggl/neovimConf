@@ -20,20 +20,14 @@ local plugins = {
     {
         "williamboman/mason-lspconfig.nvim",
         event = "BufRead",
-        opts = {
-            ensure_installed = {
-                "lua_ls",
-                "pyright",
-                "clangd",
-                "neocmake",
-                "bashls",
-                "powershell_es",
-                "csharp_ls",
-                "rust_analyzer",
-                "gopls",
-                "marksman",
-            },
-        },
+        
+        opts = function()
+            return require "custom.plugins.configs.mason-lspconfig"
+        end,
+
+        config = function(_, opts)
+            require("mason-lspconfig").setup(opts)
+        end,
     },
     -- NOTE:use mason-null-ls to configure Formatter/Linter installation for null-ls sources
     {

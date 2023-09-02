@@ -26,21 +26,14 @@ local ensure_installed = {
     "gospel",
 }
 
-local function tablefind(tab,el)
-    for index, value in pairs(tab) do
-        if value == el then
-            return index
-        end
-    end
-end
 
 if os_name == "Windows" then
-    table.remove(ensure_installed, tablefind(ensure_installed,"gospel"))
+    table.remove(ensure_installed, get_os_name.tablefind(ensure_installed,"gospel"))
     options = {
         ensure_installed = ensure_installed
     }
 elseif os_name == "Linux" then
-    table.remove(ensure_installed, tablefind(ensure_installed,"csharpier"))
+    table.remove(ensure_installed, get_os_name.tablefind(ensure_installed,"csharpier"))
 end
 
 

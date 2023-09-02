@@ -7,6 +7,14 @@
 
 local M = {}
 
+function M.tablefind(tab,el)
+    for index, value in pairs(tab) do
+        if value == el then
+            return index
+        end
+    end
+end
+
 function M.get_os_name()
     -- Return two strings describing the OS name and OS architecture.
     -- For Windows, the OS identification is based on environment variables
