@@ -311,7 +311,7 @@ local plugins = {
     },
     {
         "hrsh7th/cmp-calc",
-        event = "BufEnter",
+        dependencies = "hrsh7th/nvim-cmp",
         config = function()
             require "custom.plugins.configs.calc"
         end,
