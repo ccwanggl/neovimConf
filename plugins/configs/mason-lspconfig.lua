@@ -21,6 +21,10 @@ local ensure_installed = {
     "rust_analyzer",
     "gopls",
     "marksman",
+    "eslint-lsp",
+    "js-debug-adapter",
+    "prettier",
+    "typescript-language-server",
 }
 
 if os_name == "Linux" then

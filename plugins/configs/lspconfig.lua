@@ -15,7 +15,7 @@ local servers = {
     "csharp_ls",
     "lua_ls",
     "rust_analyzer",
-    "marksman"
+    "marksman",
 }
 
 if os_name == "Linux" then
@@ -91,3 +91,29 @@ end
 
 --NOTE: Only for neodev configuration
 require("neodev").setup {}
+
+
+-- NOTE: nodejs
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = {vim.api.nvim_buf_get_name(0)},
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    }
+  },
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports",
+    }
+  }
+}

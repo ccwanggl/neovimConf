@@ -77,6 +77,7 @@ M.dap = {
       "<cmd> DapToggleBreakpoint <CR>",
       "Add breakpoint at line",
     },
+        
     ["<leader>dus"] = {
       function()
         local widgets = require "dap.ui.widgets"
@@ -85,6 +86,11 @@ M.dap = {
       end,
       "Open debugging sidebar",
     },
+        
+    ["<leader>dr"] = {
+      "<cmd> DapContinue <CR>",
+      "Run or continue the debugger"
+    }
   },
 }
 
