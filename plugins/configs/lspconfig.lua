@@ -1,4 +1,4 @@
-local get_os_name = require ("custom.plugins.configs.get_os_name")
+local get_os_name = require "custom.plugins.configs.get_os_name"
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
@@ -19,12 +19,12 @@ local servers = {
 }
 
 if os_name == "Linux" then
-    table.remove(servers, get_os_name.tablefind(servers,"csharp_ls"))
+    table.remove(servers, get_os_name.tablefind(servers, "csharp_ls"))
 end
 
 for _, lsp in ipairs(servers) do
     if lsp == "clangd" then
-        capabilities.offsetEncoding =  {"utf-16"}
+        capabilities.offsetEncoding = { "utf-16" }
         on_attach = function(client, bufnr)
             client.server_capabilities.signatureHelpProvider = false
             on_attach(client, bufnr)
@@ -37,11 +37,11 @@ for _, lsp in ipairs(servers) do
 end
 
 --NOTE: configuration for gopls
-nvim_lsp.gopls.setup{
+nvim_lsp.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = {"gopls"},
-    filetype = {"go", "gomod", "gowork", "gotoml"},
+    cmd = { "gopls" },
+    filetype = { "go", "gomod", "gowork", "gotoml" },
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
@@ -49,16 +49,16 @@ nvim_lsp.gopls.setup{
             usePlaceholders = true,
             analyses = {
                 unusedparams = true,
-            }
-        }
-    }
+            },
+        },
+    },
 }
 
 --NOTE: configuration for gopls
-nvim_lsp.pyright.setup{
+nvim_lsp.pyright.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    filetype = {"python"},
+    filetype = { "python" },
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
@@ -66,12 +66,10 @@ nvim_lsp.pyright.setup{
             usePlaceholders = true,
             analyses = {
                 unusedparams = true,
-            }
-        }
-    }
+            },
+        },
+    },
 }
-
-
 
 --NOTE: configuration for neocmakelsp
 if not configs.neocmake then
@@ -92,28 +90,27 @@ end
 --NOTE: Only for neodev configuration
 require("neodev").setup {}
 
-
 -- NOTE: nodejs
 local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = {vim.api.nvim_buf_get_name(0)},
-  }
-  vim.lsp.buf.execute_command(params)
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+    }
+    vim.lsp.buf.execute_command(params)
 end
 
 nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  init_options = {
-    preferences = {
-      disableSuggestions = true,
-    }
-  },
-  commands = {
-    OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
-    }
-  }
+    on_attach = on_attach,
+    capabilities = capabilities,
+    init_options = {
+        preferences = {
+            disableSuggestions = true,
+        },
+    },
+    commands = {
+        OrganizeImports = {
+            organize_imports,
+            description = "Organize Imports",
+        },
+    },
 }
