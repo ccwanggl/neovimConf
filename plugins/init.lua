@@ -369,13 +369,23 @@ local plugins = {
         end,
     },
     {
-    "altermo/ultimate-autopair.nvim",
-    event={'InsertEnter','CmdlineEnter'},
-    branch='v0.6',
-    opts={
-        --Config goes here
+        "altermo/ultimate-autopair.nvim",
+        event={'InsertEnter','CmdlineEnter'},
+        branch='v0.6',
+        opts={
+            --Config goes here
+            },
     },
-}
+    {
+        'stevearc/oil.nvim',
+        event = "BufRead",
+        opts = {},
+        -- Optional dependencies
+        config = function()
+            require "custom.plugins.configs.oil"
+        end,
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    }
 }
 
 return plugins
