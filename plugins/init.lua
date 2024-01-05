@@ -378,7 +378,7 @@ local plugins = {
     },
     {
         'stevearc/oil.nvim',
-        event = "BufRead",
+        lazy = false,
         opts = {},
         -- Optional dependencies
         config = function()

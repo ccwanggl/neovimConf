@@ -137,4 +137,22 @@ M.gopher = {
     },
 }
 
+M.nvimtree = {
+    plugin = true,
+    n = {
+ --       ["<leader>e"] = {"<cmd> Oil --float <CR>", "Open oil in a floating window" }
+        ["<leader>e"] = {
+            function()
+                local oil = require("oil")
+                local api = require("nvim-tree.api")
+                local node = api.tree.get_node_under_cursor()
+                local dirname = node.absolute_path:match("(.*[/\\])")
+                oil.open_float(dirname)
+            end,
+            "Open oil in a floating windows"
+             }
+        --       
+    }
+}
+
 return M
