@@ -27,14 +27,14 @@ M.treesitter = {
 
 M.nvimtree = {
     git = {
-        enable = true,
+        enable = false,
     },
 
     renderer = {
-        highlight_git = true,
+        highlight_git = false,
         icons = {
             show = {
-                git = true,
+                git = false,
             },
         },
     },
