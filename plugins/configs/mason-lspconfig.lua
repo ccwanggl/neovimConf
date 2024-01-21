@@ -25,7 +25,7 @@ local ensure_installed = {
     "js-debug-adapter",
     "prettier",
     "typescript-language-server",
-    "slint-lsp"
+    "slint_lsp"
 }
 
 if os_name == "Linux" then

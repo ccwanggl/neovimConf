@@ -385,6 +385,10 @@ local plugins = {
             require "custom.plugins.configs.oil"
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        'slint-ui/vim-slint',
+        ft = "slint"
     }
 }
 

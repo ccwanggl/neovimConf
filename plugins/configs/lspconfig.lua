@@ -115,3 +115,8 @@ nvim_lsp.tsserver.setup {
         },
     },
 }
+nvim_lsp.slint_lsp.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetype = { "slint" },
+}
