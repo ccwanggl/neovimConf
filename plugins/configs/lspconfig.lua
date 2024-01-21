@@ -16,7 +16,7 @@ local servers = {
     "lua_ls",
     "rust_analyzer",
     "marksman",
-    "slint-lsp"
+    "slint_lsp"
 }
 
 if os_name == "Linux" then
