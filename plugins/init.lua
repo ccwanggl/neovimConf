@@ -389,6 +389,13 @@ local plugins = {
     {
         'slint-ui/vim-slint',
         ft = "slint"
+    },
+    {
+        'NStefan002/speedtyper.nvim',
+        cmd = "Speedtyper",
+        opts = {
+        -- your config
+        }
     }
 }
 
