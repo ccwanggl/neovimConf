@@ -196,13 +196,6 @@ local plugins = {
         end,
     },
     {
-        "nvimdev/indentmini.nvim",
-        event = "BufEnter",
-        config = function()
-            require("indentmini").setup()
-        end,
-    },
-    {
         "rust-lang/rust.vim",
         ft = "rust",
         init = function()
@@ -404,6 +397,10 @@ local plugins = {
         config = function()
             require "custom.plugins.configs.lsp_signature"
         end
+    },
+    {
+        "tpope/vim-fugitive",
+        event = "User FilePost",
     }
 }
 
