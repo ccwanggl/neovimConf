@@ -16,6 +16,13 @@ local plugins = {
             require("mason").setup()
         end,
     },
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require "custom.plugins.configs.dap"
+            require("core.utils").load_mappings "dap"
+        end,
+    },
 
     {
         "williamboman/mason-lspconfig.nvim",
@@ -29,6 +36,20 @@ local plugins = {
             require("mason-lspconfig").setup(opts)
         end,
     },
+    -- NOTE: mason-nvim-dap bridges mason.nvim with the nvim-dap plugin - making it easier to use both plugins together
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        event = "BufRead",
+        
+        opts = function()
+            return require "custom.plugins.configs.mason-dap"
+        end,
+
+        config = function(_, opts)
+            require("mason-nvim-dap").setup(opts)
+        end,
+    },
+    
     -- NOTE:use mason-null-ls to configure Formatter/Linter installation for null-ls sources
     {
         "jay-babu/mason-null-ls.nvim",
@@ -40,19 +61,6 @@ local plugins = {
         config = function(_, opts)
             require("mason-null-ls").setup(opts)
         end,
-    },
-
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        event = "BufRead",
-        opts = {
-            ensure_installed = {
-                -- "python",
-                "codelldb",
-                "go-debug-adapter",
-                "debugpy",
-            },
-        },
     },
 
     {
@@ -211,13 +219,6 @@ local plugins = {
 
         config = function(_, opts)
             require("rust-tools").setup(opts)
-        end,
-    },
-    {
-        "mfussenegger/nvim-dap",
-        config = function()
-            require "custom.plugins.configs.dap"
-            require("core.utils").load_mappings "dap"
         end,
     },
     {
