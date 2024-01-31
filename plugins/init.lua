@@ -401,7 +401,22 @@ local plugins = {
     {
         "tpope/vim-fugitive",
         event = "User FilePost",
-    }
+    },
+    {
+        "nvimdev/guard.nvim",
+
+        opts = function ()
+            
+        end,
+
+        config = function()
+            require("guard").setup(opts)
+        end,
+        dependencies = {
+            "nvimdev/guard-collection",
+        },
+    },
+    
 }
 
 return plugins
