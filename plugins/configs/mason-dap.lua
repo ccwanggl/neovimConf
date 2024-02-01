@@ -4,17 +4,17 @@ local os_name, arch_name = get_os_name.get_os_name()
 local present, mason = pcall(require, "mason-nvim-dap")
 
 if not present then
+    print('mason-nvim-dap not found')
     return
 else
 end
 
 local options = {
     ensure_installed = {
-        "prettier",
-        "js-debug-adapter",
-        "debugpy",
-        "cpptools",
-        "bash-debug-adapter"
+        'python',
+        'cppdbg',
+        'js',
+        'bash',
     },
     
     automatic_installation = true,

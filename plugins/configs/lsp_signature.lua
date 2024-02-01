@@ -58,7 +58,6 @@ else
     }
 
     require'lsp_signature'.setup(opts)
-    print("lsp_signature")
 end
 
 
