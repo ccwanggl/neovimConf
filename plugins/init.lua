@@ -13,7 +13,13 @@ local plugins = {
     {
         "williamboman/mason.nvim",
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                providers = {
+                    "mason.providers.client",
+                    "mason.providers.registry-api"
+                },
+                log_level = vim.log.levels.DEBUG
+                })
         end,
     },
     {
@@ -27,7 +33,6 @@ local plugins = {
     {
         "williamboman/mason-lspconfig.nvim",
         event = "BufRead",
-
         opts = function()
             return require "custom.plugins.configs.mason-lspconfig"
         end,
@@ -40,7 +45,6 @@ local plugins = {
     {
         "jay-babu/mason-nvim-dap.nvim",
         event = "BufRead",
-        
         opts = function()
             return require "custom.plugins.configs.mason-dap"
         end,
@@ -49,7 +53,6 @@ local plugins = {
             require("mason-nvim-dap").setup(opts)
         end,
     },
-    
     -- NOTE:use mason-null-ls to configure Formatter/Linter installation for null-ls sources
     {
         "jay-babu/mason-null-ls.nvim",
@@ -404,19 +407,20 @@ local plugins = {
     },
     {
         "nvimdev/guard.nvim",
-
-        opts = function ()
-            
-        end,
-
         config = function()
-            require("guard").setup(opts)
+            require("guard").setup()
         end,
         dependencies = {
             "nvimdev/guard-collection",
         },
     },
-    
+    {
+        "quarto-dev/quarto-nvim",
+        ft = {"qmd"},
+        config = function()
+            require "custom.plugins.configs.quarto"
+        end
+    }
 }
 
 return plugins

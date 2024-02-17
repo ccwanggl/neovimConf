@@ -23,7 +23,8 @@ local options =
         "gopls",
         "marksman",
         "eslint",
-        "slint_lsp"
+        "slint_lsp",
+        "r_language_server"
     },
 }
 
