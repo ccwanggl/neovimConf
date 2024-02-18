@@ -15,16 +15,16 @@ local options={
         "stylua",
         "cpplint",
         "clang-format",
-        "shell-check",
+        "shellcheck",
         "csharpier",
         "cmakelang",
         "gofumpt",
-        "goimports_reviser",
         "golines",
         "mypy",
         "ruff",
         "black",
         "gospel",
+        "goimports-reviser",
     },
 }
 

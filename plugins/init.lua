@@ -50,7 +50,8 @@ local plugins = {
         end,
 
         config = function(_, opts)
-            require("mason-nvim-dap").setup(opts)
+            -- print(vim.inspect(opts))
+            require('mason-nvim-dap').setup(opts)
         end,
     },
     -- NOTE:use mason-null-ls to configure Formatter/Linter installation for null-ls sources
@@ -60,7 +61,7 @@ local plugins = {
         opts = function()
             return require "custom.plugins.configs.mason-null-ls"
         end,
-
+        
         config = function(_, opts)
             require("mason-null-ls").setup(opts)
         end,
