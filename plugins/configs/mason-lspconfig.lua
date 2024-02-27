@@ -24,6 +24,7 @@ local options =
         "marksman",
         "eslint",
         "slint_lsp",
+        "jsonls",
         "r_language_server"
     },
 }
