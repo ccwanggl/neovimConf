@@ -449,6 +449,14 @@ local plugins = {
                 disable_filename = 1
             }
         end,
+    },
+    {
+        "uga-rosa/ccc.nvim",
+        event={'BufRead','BufNewFile'},
+        
+        config = function()
+            require "custom.plugins.configs.ccc"
+        end,
     }
 }
 
