@@ -25,7 +25,8 @@ local options =
         "eslint",
         "slint_lsp",
         "jsonls",
-        "r_language_server"
+        "r_language_server",
+        "golangci_lint_ls"
     },
 }
 

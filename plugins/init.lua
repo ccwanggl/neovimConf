@@ -128,6 +128,9 @@ local plugins = {
         config = function()
             require "custom.plugins.configs.null-ls"
         end,
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        }
     },
 
     {

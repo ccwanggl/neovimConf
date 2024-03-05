@@ -2,9 +2,10 @@ local get_os_name = require "custom.plugins.configs.get_os_name"
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local configs = require "lspconfig.configs"
 local nvim_lsp = require "lspconfig"
+local configs = require "lspconfig/configs"
 local util = require "lspconfig/util"
+
 local servers = {
     "html",
     "cssls",
@@ -55,7 +56,23 @@ nvim_lsp.gopls.setup {
     },
 }
 
---NOTE: configuration for gopls
+if not configs.golangcilsp then
+ 	configs.golangcilsp = {
+		default_config = {
+			cmd = {'golangci-lint-langserver'},
+			root_dir = util.root_pattern('.git', 'go.mod'),
+			init_options = {
+					command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1" };
+			}
+		};
+	}
+end
+
+nvim_lsp.golangci_lint_ls.setup {
+	filetypes = {'go','gomod'}
+}
+
+--NOTE: configuration for pyright
 nvim_lsp.pyright.setup {
     on_attach = on_attach,
     capabilities = capabilities,

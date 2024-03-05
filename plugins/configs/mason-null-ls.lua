@@ -24,6 +24,7 @@ local options={
         "ruff",
         "black",
         "goimports-reviser",
+        "gospel",
         "golangci-lint"
     },
 }

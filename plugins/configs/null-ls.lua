@@ -1,3 +1,6 @@
+local get_os_name = require "custom.plugins.configs.get_os_name"
+local os_name, arch_name = get_os_name.get_os_name()
+
 local present, null_ls = pcall(require, "null-ls")
 
 if not present then
@@ -8,7 +11,6 @@ local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
-
     -- webdev stuff
     formatting.deno_fmt,
     formatting.prettier,
@@ -33,10 +35,10 @@ local sources = {
     formatting.gofumpt,
     formatting.goimports_reviser,
     formatting.golines,
+    -- misspelled word linter for Go comments, string literals and embedded files
     lint.golangci_lint,
-    
-    -- OCaml
-    -- lint.gospel,
+    lint.staticcheck,
+    lint.revive,
 
     -- csharp
     formatting.csharpier,
@@ -48,8 +50,12 @@ local sources = {
 
 }
 
-null_ls.setup {
+if os_name == "Linux" then
+    table.insert(sources, lint.gospel)
+end
+
+null_ls.setup ({
     -- add your sources / config options here
-    sources = sources,
     debug = true,
-}
+    sources = sources,
+})
