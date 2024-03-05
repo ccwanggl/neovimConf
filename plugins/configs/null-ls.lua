@@ -33,7 +33,10 @@ local sources = {
     formatting.gofumpt,
     formatting.goimports_reviser,
     formatting.golines,
-    lint.gospel,
+    lint.golangci_lint,
+    
+    -- OCaml
+    -- lint.gospel,
 
     -- csharp
     formatting.csharpier,

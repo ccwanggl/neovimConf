@@ -23,8 +23,8 @@ local options={
         "mypy",
         "ruff",
         "black",
-        "gospel",
         "goimports-reviser",
+        "golangci-lint"
     },
 }
 
