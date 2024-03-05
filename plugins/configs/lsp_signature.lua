@@ -53,10 +53,11 @@ local opts = {
         toggle_key = '<A-k>',
 
 
-        select_signature_key = nil, -- cycle to next signature, e.g. '<M-n>' function overloading
+        select_signature_key = '<A-n>', -- cycle to next signature, e.g. '<M-n>' function overloading
         move_cursor_key = nil, -- imap, use nvim_set_current_win to move cursor between current win and floating
     }
     vim.keymap.set({ 'n' }, '<Leader>k', function() vim.lsp.buf.signature_help() end, { silent = true, noremap = true, desc = 'toggle signature' })
 
-return opts
+
+lspsignature.setup(opts)
 
