@@ -460,6 +460,20 @@ local plugins = {
         config = function()
             require "custom.plugins.configs.ccc"
         end,
+    },
+    {
+        "Civitasv/cmake-tools.nvim",
+        ft = "cpp",
+        config = function()
+            require "custom.plugins.configs.cmake-tools"
+        end,
+    },
+    {
+        "stevearc/overseer.nvim",
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        version = "*",
     }
 }
 
