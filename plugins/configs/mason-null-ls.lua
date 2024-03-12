@@ -25,7 +25,9 @@ local options={
         "black",
         "goimports-reviser",
         "gospel",
-        "golangci-lint"
+        "golangci-lint",
+        "yamlfmt",
+        "yamllint"
     },
 }
 

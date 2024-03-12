@@ -48,6 +48,10 @@ local sources = {
     lint.ruff,
     formatting.black,
 
+    -- yaml
+    lint.yamllint,
+    formatting.yamlfmt,
+
 }
 
 if os_name == "Linux" then
