@@ -52,11 +52,18 @@ local sources = {
     lint.yamllint,
     formatting.yamlfmt,
 
+    --markdown
+    lint.vale.with({
+        extra_filetypes = {"txt", "text"},
+        extra_args = {"--config=%LOCALAPPDATA%\\vale\\.vale.ini"},
+    })
+
 }
 
 if os_name == "Linux" then
     table.insert(sources, lint.gospel)
 end
+
 
 null_ls.setup ({
     -- add your sources / config options here

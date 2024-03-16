@@ -365,7 +365,7 @@ local plugins = {
         "mfussenegger/nvim-lint",
         event = "VeryLazy",
         config = function()
-            require "custom.plugins.configs.lint"
+            require "custom.plugins.configs.nvim-lint"
         end,
     },
     {

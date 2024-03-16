@@ -27,7 +27,8 @@ local options={
         "gospel",
         "golangci-lint",
         "yamlfmt",
-        "yamllint"
+        "yamllint",
+        "vale"
     },
 }
 
